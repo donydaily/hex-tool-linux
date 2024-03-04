@@ -1,5 +1,5 @@
 #!/bin/sh
-chmod a+x ./adb
+chmod a+x adb
 clear
 echo \###########################################
 echo \#hex_ tool - linux
@@ -34,15 +34,15 @@ run(){
 	clear
 	echo \###########################################
 	echo Starting ADB...
-	./adb kill-server 2>/dev/null
-	./adb start-server 2>/dev/null
+	adb kill-server 2>/dev/null
+	adb start-server 2>/dev/null
 	echo \###########################################
 	echo Connecting to your device...
 	echo \###########################################
 
 	local devices=""
 	IFS=
-	for i in $(./adb devices); do devices="$devices$i"; done
+	for i in $(adb devices); do devices="$devices$i"; done
 	
 	if echo "$devices" | grep -q "unauthorized"  
 	then 
